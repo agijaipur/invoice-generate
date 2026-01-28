@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-gray-50 text-gray-900;
+    }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+    @apply bg-white/80 backdrop-blur-lg border border-gray-200 shadow-xl;
+}
+
+.input-field {
+    @apply w-full bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm text-gray-900 placeholder:text-gray-400;
+}
+
+.btn-primary {
+    @apply px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-all font-medium shadow-sm hover:shadow-md;
+}
+
+/* New Auth Design Styles - Light Theme */
+.login-overlay-full {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(15, 23, 42, 0.85);
+    /* Darker backdrop for visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #1e293b;
+}
+
+.auth-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: auth-rotate 20s linear infinite;
+}
+
+@keyframes auth-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.auth-bar {
+    position: absolute;
+    width: 6px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle inactive bars on dark bg */
+    border-radius: 3px;
+    top: 0;
+    left: 50%;
+    transform-origin: center 150px;
+    transition: background 0.3s ease;
+}
+
+.auth-bar.active {
+    background: #0ea5e9;
+    /* Skyblue */
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.8);
+}
+
+.login-auth-box {
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    width: 420px;
+}
+
+.login-auth-box h2 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.auth-input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 25px;
+    color: #1e293b;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.auth-input-group input:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.1);
+}
+
+.auth-input-group input.error {
+    border-color: #ef4444;
+}
+
+.auth-input-group input::placeholder {
+    color: #94a3b8;
+}
+
+.auth-input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.forgot-auth-password {
+    text-align: right;
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+.forgot-auth-password a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.forgot-auth-password a:hover {
+    color: #ffa500;
+}
+
+.login-auth-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0ea5e9;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.login-auth-btn:hover {
+    background: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+}
+
+.login-auth-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.login-auth-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.social-auth-login {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.social-auth-login p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.social-auth-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-auth-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    color: #fff;
+}
+
+.social-auth-icon.facebook {
+    background: #3b5998;
+}
+
+.social-auth-icon.twitter {
+    background: #000;
+}
+
+.social-auth-icon.google {
+    background: #db4437;
+}
+
+.social-auth-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.signup-auth-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.signup-auth-link a {
+    color: #ffa500;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.signup-auth-link a:hover {
+    color: #ff8c00;
+    text-decoration: underline;
+}
