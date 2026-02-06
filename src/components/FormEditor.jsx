@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Save, Download, Plus, Trash } from 'lucide-react';
 import OverlayCanvas from './OverlayCanvas';
+import RefundTemplate2 from './RefundTemplate2';
 import { BANK_LAYOUTS } from '../data/coordinates';
 
 const FormEditor = ({ formId, onBack }) => {

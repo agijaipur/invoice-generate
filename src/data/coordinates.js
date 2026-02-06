@@ -231,7 +231,36 @@ export const BANK_LAYOUTS = {
             invoiceLast4: { defaultValue: '1232' }
         }
     },
-    "REFUND 2": { pages: ['/forms/refund2.png'], fields: {} },
+    "REFUND 2": {
+        pages: [''],
+        image: '/forms/REFUND invoice.pdf',
+        isHtml: true,
+        fields: {
+            invoiceNumber: { defaultValue: '393F4753-0001' },
+            receiptNumber: { defaultValue: '3770-8198' },
+            dateIssued: { defaultValue: 'October 27, 2024' },
+            paymentMethod: { defaultValue: 'Mastercard - 9680' },
+            companyName: { defaultValue: 'coursechamps' },
+            companyAddress1: { defaultValue: '1309 Coffeen Avenue' },
+            companyAddress2: { defaultValue: 'STE 1200' },
+            companyAddress3: { defaultValue: 'Sheridan, Wyoming 82801' },
+            companyAddress4: { defaultValue: 'United States' },
+            companyPhone: { defaultValue: '+1 929-342-4519' },
+            billToName: { defaultValue: 'Joy Ghosh' },
+            billToEmail: { defaultValue: 'joyghosh20246@gmail.com' },
+            refundAmount: { defaultValue: '$999.99' },
+            refundDate: { defaultValue: 'October 27, 2024' },
+            itemDescription: { defaultValue: 'SMMA Incubator Course' },
+            itemQty: { defaultValue: '1' },
+            itemUnitPrice: { defaultValue: '$999.99' },
+            itemAmount: { defaultValue: '$999.99' },
+            subtotal: { defaultValue: '$999.99' },
+            total: { defaultValue: '$999.99' },
+            amountPaid: { defaultValue: '$999.99' },
+            refundedAmount: { defaultValue: '$999.99' },
+            totalRefundedWithoutCredit: { defaultValue: '$999.99' }
+        }
+    },
     "TBL REFUND GMAIL": { pages: ['/forms/tbl_gmail.png'], fields: {} },
 
     // Gmail Formats

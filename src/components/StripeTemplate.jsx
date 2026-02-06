@@ -255,7 +255,7 @@ const StripeTemplate = ({ data }) => {
                     <br /><br />
                     <div style={{ padding: '0 10px', fontSize: '9px' }}>
                         You're receiving this email because you made a purchase at {project},
-                        which partners with <a href="https://stripe.com" style={{ ...styles.link, fontSize: '9px', fontWeight: '700' }}>Stripe</a>.
+                        which partners with <a href="https://stripe.com" style={{ ...styles.link, color: '#4f5bd5', fontSize: '9px', fontWeight: '700' }}>Stripe</a>.
                     </div>
                 </div>
             </div>
