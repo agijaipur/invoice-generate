@@ -6,6 +6,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import { renderAsync } from 'docx-preview';
 import StripeTemplate from './StripeTemplate';
 import RefundTemplate2 from './RefundTemplate2';
+import TBLRefundGmail from './TBLRefundGmail';
 
 // Configure PDF worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@5.4.296/build/pdf.worker.min.mjs`;
@@ -357,9 +358,9 @@ const OverlayCanvas = ({ config, data, formId }) => {
                             className={`form-page relative shadow-2xl transition-transform overflow-hidden ${(!isPdf && !isDocx) ? 'bg-white' : 'bg-gray-50'}`}
                             onClick={handleImageClick}
                             style={{
-                                width: formId === 'STRIPE' ? '375px' : (formId === 'REFUND 2' ? '8.5in' : '210mm'),
-                                height: formId === 'STRIPE' ? 'auto' : (formId === 'REFUND 2' ? 'auto' : '297mm'),
-                                minHeight: formId === 'STRIPE' ? '720px' : (formId === 'REFUND 2' ? '11in' : '297mm'),
+                                width: formId === 'STRIPE' ? '375px' : (['REFUND 2', 'TBL REFUND GMAIL'].includes(formId) ? '8.5in' : '210mm'),
+                                height: formId === 'STRIPE' ? 'auto' : (['REFUND 2', 'TBL REFUND GMAIL'].includes(formId) ? 'auto' : '297mm'),
+                                minHeight: formId === 'STRIPE' ? '720px' : (['REFUND 2', 'TBL REFUND GMAIL'].includes(formId) ? '11in' : '297mm'),
                                 backgroundColor: '#ffffff',
                                 // Support custom background style from config, otherwise fallback to default
                                 ...((config.pagesConfig && config.pagesConfig[idx]?.style) || config.backgroundStyle || {
@@ -412,7 +413,7 @@ const OverlayCanvas = ({ config, data, formId }) => {
                                 <DocxRenderer src={pageSrc} />
                             )}
 
-                            {!pageSrc && formId !== 'STRIPE' && formId !== 'REFUND 2' && (
+                            {!pageSrc && !['STRIPE', 'REFUND 2', 'TBL REFUND GMAIL'].includes(formId) && (
                                 <div className="absolute inset-0 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300 m-8 rounded bg-gray-50">
                                     {formId} Page {idx + 1} Image Not Found
                                 </div>
@@ -426,8 +427,12 @@ const OverlayCanvas = ({ config, data, formId }) => {
                                 <RefundTemplate2 data={data} />
                             )}
 
-                            {/* Render fields designated for this page - Skip for STRIPE and REFUND 2 as they have their own HTML rendering */}
-                            {config.fields && formId !== 'STRIPE' && formId !== 'REFUND 2' && (
+                            {formId === 'TBL REFUND GMAIL' && (
+                                <TBLRefundGmail data={data} />
+                            )}
+
+                            {/* Render fields designated for this page - Skip for STRIPE, REFUND 2, and TBL REFUND GMAIL as they have their own HTML rendering */}
+                            {config.fields && !['STRIPE', 'REFUND 2', 'TBL REFUND GMAIL'].includes(formId) && (
                                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                                     {Object.entries(config.fields).map(([key, fieldConfig]) => {
                                         // Skip table-related keys

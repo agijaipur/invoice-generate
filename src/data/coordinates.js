@@ -261,7 +261,32 @@ export const BANK_LAYOUTS = {
             totalRefundedWithoutCredit: { defaultValue: '$999.99' }
         }
     },
-    "TBL REFUND GMAIL": { pages: ['/forms/tbl_gmail.png'], fields: {} },
+    "TBL REFUND GMAIL": {
+        pages: [''],
+        isHtml: true,
+        displayName: 'TBL REFUND GMAIL',
+        fields: {
+            companyName: { defaultValue: 'XXXX' },
+            companyId: { defaultValue: 'XXXX' },
+            orderNumber: { defaultValue: 'XXXX' },
+            purchasedDate: { defaultValue: 'XXXX' },
+            issuedDate: { defaultValue: 'XXXX' },
+            referenceNumber: { defaultValue: 'XXXX' },
+            paymentMethod: { defaultValue: 'XXXX - *XXXX' },
+            subtotal: { defaultValue: 'XXXX' },
+            total: { defaultValue: 'XXXX' },
+            amountRefunded: { defaultValue: 'XXXX' },
+            adjustedTax: { defaultValue: '£0' },
+            adjustedTotal: { defaultValue: '£0' },
+            providerName: { defaultValue: 'Procandi Limited - Coaching for Entrepreneurs' },
+            providerUrl: { defaultValue: 'Procandi.co.uk' },
+            supplierName: { defaultValue: 'Teachable' },
+            supplierAddressLine1: { defaultValue: '470 Park Ave South' },
+            supplierAddressLine2: { defaultValue: 'Sixth Floor' },
+            supplierAddressLine3: { defaultValue: 'New York, NY 10016 US' },
+            supplierTaxId: { defaultValue: '100500265200003' }
+        }
+    },
 
     // Gmail Formats
     "GMAIL COMMUNICATION": { pages: ['/forms/gmail_comm.png'], fields: {} },
